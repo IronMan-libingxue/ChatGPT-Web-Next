@@ -51,10 +51,15 @@ describe('logo preferences', () => {
   })
 
   it('falls back to the default bundled icon when a selected runtime icon is missing', () => {
-    const selected = new LogoService().apply('logo-043714')
-    expect(selected).toBe(DEFAULT_LOGO_ID)
-    expect(electronMocks.createFromPath).toHaveBeenCalledTimes(2)
-    expect(electronMocks.setIcon).toHaveBeenCalledTimes(1)
+    const platform = vi.spyOn(process, 'platform', 'get').mockReturnValue('darwin')
+    try {
+      const selected = new LogoService().apply('logo-043714')
+      expect(selected).toBe(DEFAULT_LOGO_ID)
+      expect(electronMocks.createFromPath).toHaveBeenCalledTimes(2)
+      expect(electronMocks.setIcon).toHaveBeenCalledTimes(1)
+    } finally {
+      platform.mockRestore()
+    }
   })
 
   it('backs up a corrupt preference and safely restores the default', async () => {
