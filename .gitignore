@@ -1,0 +1,39 @@
+node_modules/
+out/
+dist/
+output/
+release-upload/
+out-*/
+dist-*/
+out-native-login-pilot/
+dist-native-login-pilot/
+coverage/
+*.log
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+*.p12
+*.pem
+*.key
+.idea/
+.vscode/
+
+# Local project history and acceptance evidence. These files stay on the
+# development machine because they contain local paths and private calibration
+# details that are not required to build the public source tree.
+/HANDOFF.md
+/NEXT_RELEASE_ACCEPTANCE.md
+/DEVELOPMENT.md
+/PRIVACY.md
+/USER_GUIDE.md
+/TEST_REPORT.md
+/MANUAL_ACCEPTANCE.md
+/CHROME_WORK_PILOT.md
+/CHROME_WORK_PILOT_TEST_REPORT.md
+/LOGIN_PILOT.md
+/LOGIN_PILOT_TEST_REPORT.md
+/NATIVE_LOGIN_PILOT.md
+/NATIVE_LOGIN_PILOT_TEST_REPORT.md
+/REAL_BROWSER_MIGRATION_DECISION.md

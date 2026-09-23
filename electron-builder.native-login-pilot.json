@@ -1,0 +1,28 @@
+{
+  "appId": "com.ironman.chatgptweb.next.nativeloginpilot",
+  "productName": "ChatGPT Web Next Native Login Pilot",
+  "asar": true,
+  "files": [
+    "out-native-login-pilot/**/*",
+    "package.json"
+  ],
+  "directories": {
+    "output": "dist-native-login-pilot",
+    "buildResources": "build"
+  },
+  "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+  "extraMetadata": {
+    "name": "chatgpt-web-next-native-login-pilot",
+    "main": "out-native-login-pilot/main/index.js",
+    "description": "A standalone Electron native-popup Google login validation build for ChatGPT Web Next."
+  },
+  "mac": {
+    "category": "public.app-category.productivity",
+    "identity": "ChatGPT Web Next Local Signing",
+    "icon": "build/icon.icns",
+    "electronLanguages": [
+      "en",
+      "zh_CN"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Web Next Work 检测验证版",
+  "version": "0.1.0",
+  "description": "在专属 Chrome 环境中验证本机 ChatGPT Work 提交与服务端接受信号。",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://*.chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://*.chatgpt.com/*"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "incognito": "split",
+  "action": {
+    "default_title": "ChatGPT Web Next Work 检测验证版"
+  }
+}

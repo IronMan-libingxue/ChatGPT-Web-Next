@@ -1,0 +1,127 @@
+{
+  "name": "chatgpt-web-next",
+  "version": "0.2.1",
+  "description": "A privacy-conscious ChatGPT desktop container with isolated sessions, egress-network status, downloads, and a local session-safety policy.",
+  "main": "out/main/index.js",
+  "type": "module",
+  "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "author": "IronMan-libingxue",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IronMan-libingxue/ChatGPT-Web-Next.git"
+  },
+  "homepage": "https://github.com/IronMan-libingxue/ChatGPT-Web-Next#readme",
+  "bugs": {
+    "url": "https://github.com/IronMan-libingxue/ChatGPT-Web-Next/issues"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "pnpm typecheck && electron-vite build",
+    "pilot:dev": "ELECTRON_ENTRY=out-login-pilot/main/index.js electron-vite dev --config electron.login-pilot.vite.config.ts",
+    "pilot:build": "pnpm work-pilot:build && pnpm typecheck && electron-vite build --config electron.login-pilot.vite.config.ts",
+    "pilot:test:e2e": "pnpm pilot:build && node login-pilot/scripts/e2e-smoke.mjs",
+    "pilot:check": "pnpm lint && pnpm typecheck && pnpm test && pnpm pilot:build && node login-pilot/scripts/e2e-smoke.mjs",
+    "pilot:dist:dir": "pnpm pilot:build && electron-builder --config electron-builder.login-pilot.json --mac dir --arm64",
+    "pilot:dist:mac": "pnpm pilot:build && electron-builder --config electron-builder.login-pilot.json --mac dmg zip --arm64",
+    "native-login-pilot:build": "electron-vite build --config electron.native-login-pilot.vite.config.ts",
+    "native-login-pilot:test:e2e": "pnpm native-login-pilot:build && node native-login-pilot/scripts/e2e-smoke.mjs",
+    "native-login-pilot:check": "pnpm lint && pnpm typecheck && pnpm test --run tests/native-login-popup-policy.test.ts && pnpm native-login-pilot:test:e2e",
+    "native-login-pilot:dist:dir": "pnpm native-login-pilot:build && electron-builder --config electron-builder.native-login-pilot.json --mac dir --arm64",
+    "native-login-pilot:dist:mac": "pnpm native-login-pilot:build && electron-builder --config electron-builder.native-login-pilot.json --mac dmg zip --arm64",
+    "typecheck": "tsc -p tsconfig.node.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "work-pilot:typecheck": "tsc -p tsconfig.chrome-work-pilot.json --noEmit",
+    "work-pilot:build": "node chrome-work-pilot/scripts/build.mjs",
+    "work-pilot:test:runtime": "pnpm work-pilot:build && node chrome-work-pilot/scripts/runtime-smoke.mjs",
+    "work-pilot:check": "pnpm work-pilot:typecheck && pnpm test --run tests/chrome-work-pilot-detection.test.ts tests/chrome-work-pilot-state.test.ts && pnpm work-pilot:build",
+    "test:cdp-related": "electron scripts/cdp-related-target-smoke.mjs",
+    "test:e2e": "pnpm build && node scripts/e2e-smoke.mjs",
+    "test:e2e:packaged": "CHATGPT_WEB_NEXT_EXECUTABLE='dist/mac-universal/ChatGPT Web Next.app/Contents/MacOS/ChatGPT Web Next' node scripts/e2e-smoke.mjs",
+    "test:e2e:rosetta": "CHATGPT_WEB_NEXT_EXECUTABLE='scripts/run-packaged-rosetta.sh' CHATGPT_WEB_NEXT_ROSETTA_EXECUTABLE=\"$PWD/dist/mac-universal/ChatGPT Web Next.app/Contents/MacOS/ChatGPT Web Next\" CHATGPT_WEB_NEXT_EXPECT_ARCH=x64 node scripts/e2e-smoke.mjs",
+    "test:e2e:upgrade": "node scripts/upgrade-smoke.mjs",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "signing:setup": "zsh scripts/create-local-signing-cert.sh",
+    "dist:dir": "pnpm build && electron-builder --mac --dir",
+    "dist:mac": "pnpm build && electron-builder --mac dmg zip --universal",
+    "dist:source": "node scripts/package-source.mjs",
+    "dist:win": "pnpm build && electron-builder --win nsis portable --x64"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/chrome": "^0.2.9",
+    "@types/node": "24.10.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "5.1.1",
+    "electron": "44.2.0",
+    "electron-builder": "26.15.3",
+    "electron-vite": "5.0.0",
+    "eslint": "10.10.0",
+    "globals": "17.12.0",
+    "playwright": "1.63.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.70.0",
+    "vite": "7.2.4",
+    "vitest": "5.0.0"
+  },
+  "build": {
+    "appId": "com.ironman.chatgptweb.next",
+    "productName": "ChatGPT Web Next",
+    "asar": true,
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/icons",
+        "to": "icons",
+        "filter": [
+          "*.png"
+        ]
+      }
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "identity": "ChatGPT Web Next Local Signing",
+      "icon": "build/icon.icns",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "extendInfo": {
+        "NSCameraUsageDescription": "ChatGPT Web Next needs camera access only when you choose a ChatGPT camera feature.",
+        "NSMicrophoneUsageDescription": "ChatGPT Web Next needs microphone access only when you choose a ChatGPT voice feature."
+      }
+    },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "artifactName": "${productName}-${version}-windows-${arch}-setup.${ext}",
+      "deleteAppDataOnUninstall": false,
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-windows-${arch}-portable.${ext}"
+    }
+  }
+}

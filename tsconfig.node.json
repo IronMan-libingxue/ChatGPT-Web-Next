@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node", "electron"],
+    "composite": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "electron.vite.config.ts",
+    "electron.login-pilot.vite.config.ts",
+    "electron.native-login-pilot.vite.config.ts",
+    "vitest.config.ts",
+    "chrome-work-pilot/src/detection.ts",
+    "chrome-work-pilot/src/state.ts",
+    "login-pilot/src/main/**/*.ts",
+    "login-pilot/src/preload/**/*.ts",
+    "login-pilot/src/shared/**/*.ts",
+    "native-login-pilot/src/main/**/*.ts",
+    "native-login-pilot/src/preload/**/*.ts",
+    "native-login-pilot/src/shared/**/*.ts",
+    "src/main/**/*.ts",
+    "src/preload/**/*.ts",
+    "src/shared/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}

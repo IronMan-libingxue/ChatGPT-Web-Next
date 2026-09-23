@@ -1,0 +1,76 @@
+:root {
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #17202a;
+  background: #eef1f5;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 680px; min-height: 680px; }
+button { font: inherit; }
+.loading { display: grid; min-height: 100vh; place-items: center; color: #5c6571; }
+.page { min-height: 100vh; padding: 74px 36px 28px; background: radial-gradient(circle at 90% 0%, #e0f5ee 0, transparent 34%), #eef1f5; }
+.hero { display: grid; grid-template-columns: 48px 1fr auto; gap: 16px; align-items: center; max-width: 720px; margin: 0 auto 24px; }
+.brand-mark { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 14px; color: #fff; background: #10a37f; font-size: 24px; font-weight: 800; box-shadow: 0 10px 24px rgba(16, 163, 127, .22); }
+.eyebrow { margin: 0 0 3px; color: #17846b; font-size: 11px; font-weight: 800; letter-spacing: .13em; }
+h1 { margin: 0; font-size: 28px; line-height: 1.2; }
+.subtitle { margin: 5px 0 0; color: #68717d; font-size: 14px; }
+.pilot-badge { align-self: start; padding: 7px 10px; border: 1px solid #c7d5d0; border-radius: 999px; color: #286456; background: rgba(255,255,255,.68); font-size: 12px; font-weight: 700; }
+.card { max-width: 720px; margin: 0 auto 18px; padding: 24px; border: 1px solid #d7dde4; border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 18px 45px rgba(38, 50, 63, .08); }
+.section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+h2 { margin: 0; font-size: 18px; }
+.section-heading p { margin: 6px 0 0; color: #6b7480; font-size: 13px; line-height: 1.5; }
+.status-pill { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 7px; padding: 7px 10px; border-radius: 999px; color: #626c77; background: #f0f2f5; font-size: 12px; font-weight: 700; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #9ba3ad; }
+.status-pill.running { color: #137158; background: #e7f7f1; }
+.status-pill.running .dot { background: #10a37f; box-shadow: 0 0 0 4px rgba(16,163,127,.12); }
+.browser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+.browser-option { display: flex; min-height: 72px; flex-direction: column; align-items: flex-start; justify-content: center; padding: 13px 16px; border: 1px solid #d7dde4; border-radius: 14px; color: #27313b; background: #fff; cursor: pointer; transition: .16s ease; }
+.browser-option:hover:not(:disabled) { border-color: #76bda9; transform: translateY(-1px); }
+.browser-option.selected { border-color: #10a37f; box-shadow: inset 0 0 0 1px #10a37f; background: #f1fbf8; }
+.browser-option:disabled { cursor: not-allowed; opacity: .46; }
+.browser-name { font-weight: 750; }
+.browser-version { max-width: 100%; margin-top: 5px; overflow: hidden; color: #7a838e; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.environment-details { margin: 0 0 20px; border-top: 1px solid #e3e7eb; }
+.environment-details > div { display: grid; grid-template-columns: 100px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid #e8ebef; }
+dt { color: #777f89; font-size: 12px; }
+dd { margin: 0; text-align: right; font-size: 12px; font-weight: 650; }
+.mono { overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.action-row button { min-height: 46px; border-radius: 12px; cursor: pointer; font-weight: 750; }
+.action-row button:disabled { cursor: wait; opacity: .55; }
+.primary-button { border: 1px solid #0e8e70; color: #fff; background: #10a37f; }
+.extension-button { grid-column: 1 / -1; border: 1px solid #3971c6; color: #fff; background: #397bdc; }
+.danger-button { border: 1px solid #d7a5a0; color: #a62d22; background: #fff6f5; }
+.result { display: flex; gap: 11px; margin-top: 16px; padding: 13px 14px; border-radius: 12px; color: #275c4f; background: #edf8f4; font-size: 12px; line-height: 1.45; }
+.result.error { color: #8e241b; background: #fff0ee; }
+.result-icon { display: grid; flex: 0 0 auto; width: 22px; height: 22px; place-items: center; border-radius: 50%; color: #fff; background: #10a37f; font-weight: 800; }
+.result.error .result-icon { background: #c43a2e; }
+.result strong { display: block; }
+.result p { margin: 4px 0 0; }
+.result small { display: block; margin-top: 4px; color: #758078; }
+.steps-card { box-shadow: none; }
+.steps-card ol { display: grid; gap: 13px; margin: 18px 0 0; padding: 0; list-style: none; }
+.steps-card li { display: grid; grid-template-columns: 27px 1fr; gap: 11px; align-items: start; }
+.steps-card li > span { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 8px; color: #176e59; background: #e5f5f0; font-size: 12px; font-weight: 800; }
+.steps-card li p { margin: 3px 0 0; color: #4d5661; font-size: 13px; line-height: 1.45; }
+footer { max-width: 720px; margin: 0 auto; padding: 2px 4px 24px; color: #6d7680; font-size: 11px; line-height: 1.55; }
+footer p { margin: 3px 0; }
+
+@media (prefers-color-scheme: dark) {
+  :root { color: #f0f2f5; background: #151719; }
+  .page { background: radial-gradient(circle at 90% 0%, #123b32 0, transparent 34%), #17191c; }
+  .subtitle, .section-heading p, .steps-card li p, footer { color: #a6adb6; }
+  .pilot-badge { color: #a8dfd0; border-color: #3c5b53; background: rgba(35,39,42,.72); }
+  .card { border-color: #363b41; background: rgba(35,38,42,.94); box-shadow: 0 18px 45px rgba(0,0,0,.2); }
+  .status-pill { color: #abb1b8; background: #30343a; }
+  .status-pill.running { color: #9ae0cb; background: #193c33; }
+  .browser-option { color: #e8eaed; border-color: #41474e; background: #292d31; }
+  .browser-option.selected { border-color: #22b58f; background: #193b33; }
+  .browser-version, dt { color: #9ca4ad; }
+  .environment-details, .environment-details > div { border-color: #3b4046; }
+  .danger-button { border-color: #744640; color: #ff9b91; background: #3a2524; }
+  .result { color: #a9dfd0; background: #1b3b33; }
+  .result.error { color: #ffaea5; background: #412523; }
+  .steps-card li > span { color: #9de0cd; background: #1a4438; }
+}

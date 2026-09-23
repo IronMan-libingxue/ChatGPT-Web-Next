@@ -1,0 +1,25 @@
+name: Feature request / 功能建议
+description: Suggest a noncommercial project improvement / 建议非商业项目改进
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / 问题
+      description: What user problem should this solve? / 希望解决什么用户问题？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior / 建议行为
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy and safety impact / 隐私与安全影响
+      description: Explain any effect on sign-in, local data, permissions, or network requests. / 请说明对登录、本地数据、权限或网络请求的影响。
+    validations:
+      required: true

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable",
+      "WebWorker"
+    ],
+    "types": [
+      "chrome"
+    ],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "rootDir": "chrome-work-pilot/src",
+    "outDir": "out-chrome-work-pilot",
+    "sourceMap": false,
+    "noEmitOnError": true
+  },
+  "include": [
+    "chrome-work-pilot/src/**/*.ts"
+  ]
+}

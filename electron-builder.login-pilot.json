@@ -1,0 +1,37 @@
+{
+  "appId": "com.ironman.chatgptweb.next.loginpilot",
+  "productName": "ChatGPT Web Next Login Pilot",
+  "asar": true,
+  "files": [
+    "out-login-pilot/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "out-chrome-work-pilot",
+      "to": "work-pilot-extension",
+      "filter": [
+        "**/*"
+      ]
+    }
+  ],
+  "directories": {
+    "output": "dist-login-pilot",
+    "buildResources": "build"
+  },
+  "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+  "extraMetadata": {
+    "name": "chatgpt-web-next-login-pilot",
+    "main": "out-login-pilot/main/index.js",
+    "description": "A standalone real-browser Google login validation build for ChatGPT Web Next."
+  },
+  "mac": {
+    "category": "public.app-category.productivity",
+    "identity": "ChatGPT Web Next Local Signing",
+    "icon": "build/icon.icns",
+    "electronLanguages": [
+      "en",
+      "zh_CN"
+    ]
+  }
+}
