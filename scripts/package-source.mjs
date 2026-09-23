@@ -11,7 +11,15 @@ const projectRoot = resolve(scriptDirectory, '..')
 const packageInfo = JSON.parse(await readFile(join(projectRoot, 'package.json'), 'utf8'))
 const archiveRootName = `ChatGPT Web Next-${packageInfo.version}-source`
 const outputPath = join(projectRoot, 'dist', `${archiveRootName}.zip`)
-const excludedRoots = new Set(['.git', 'dist', 'node_modules', 'out', 'output'])
+const excludedRoots = new Set([
+  '.git',
+  'coverage',
+  'dist',
+  'node_modules',
+  'out',
+  'output',
+  'release-upload'
+])
 const excludedFileNames = new Set(['.DS_Store'])
 const temporaryRoot = await mkdtemp(join(tmpdir(), 'chatgpt-web-next-source-'))
 const stagedRoot = join(temporaryRoot, archiveRootName)
