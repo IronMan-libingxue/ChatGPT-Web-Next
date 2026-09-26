@@ -114,6 +114,13 @@ Real account passwords and two-step verification must always be entered by the u
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md) before opening an issue or change. Never post passwords, cookies, tokens, account email addresses, or conversation text.
 
+## Authors
+
+- [IronMan-libingxue](https://github.com/IronMan-libingxue)
+- [Jessica-yaoyao](https://github.com/Jessica-yaoyao)
+
+See [AUTHORS.md](AUTHORS.md) for the full attribution note.
+
 ## License
 
 The source is available under the [PolyForm Noncommercial License 1.0.0](LICENSE). Personal study, research, testing, and other noncommercial purposes are permitted. **Commercial use is prohibited** unless the project owner grants separate written permission.

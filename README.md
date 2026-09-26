@@ -114,6 +114,13 @@ pnpm dist:win
 
 提交问题或改进前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [SECURITY.md](SECURITY.md)。问题报告中不要附带密码、Cookie、令牌、账号邮箱或聊天正文。
 
+## 作者
+
+- [IronMan-libingxue](https://github.com/IronMan-libingxue)
+- [Jessica-yaoyao](https://github.com/Jessica-yaoyao)
+
+完整署名说明见 [AUTHORS.md](AUTHORS.md)。
+
 ## 许可
 
 源码按 [PolyForm Noncommercial License 1.0.0](LICENSE) 提供：允许个人学习、研究、测试及其他非商业用途；**不允许商业使用**。如需商业授权，请联系项目所有者另行取得书面许可。

@@ -7,6 +7,16 @@
   "private": true,
   "license": "PolyForm-Noncommercial-1.0.0",
   "author": "IronMan-libingxue",
+  "contributors": [
+    {
+      "name": "IronMan-libingxue",
+      "url": "https://github.com/IronMan-libingxue"
+    },
+    {
+      "name": "Jessica-yaoyao",
+      "url": "https://github.com/Jessica-yaoyao"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/IronMan-libingxue/ChatGPT-Web-Next.git"

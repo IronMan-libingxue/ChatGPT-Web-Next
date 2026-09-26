@@ -2,6 +2,8 @@
 
 ## 0.2.1 — 2026-09-23
 
+共同作者 / Co-authors: [IronMan-libingxue](https://github.com/IronMan-libingxue), [Jessica-yaoyao](https://github.com/Jessica-yaoyao)
+
 ### 中文
 
 - 修复 Electron 原生 Google 登录弹窗关系，覆盖首次登录、两步验证、重启保持、清除后重新登录和账号切换。
