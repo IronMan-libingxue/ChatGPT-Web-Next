@@ -2,7 +2,7 @@
 
 ## 0.2.1 — 2026-09-23
 
-共同作者 / Co-authors: [IronMan-libingxue](https://github.com/IronMan-libingxue), [Jessica-yaoyao](https://github.com/Jessica-yaoyao)
+共同作者 / Co-authors: @IronMan-libingxue, @Jessica-yaoyao
 
 ### 中文
 
